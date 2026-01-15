@@ -1,0 +1,360 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Montserrat:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Luxury Wedding Palette - Light Mode */
+    --background: 40 33% 98%;
+    --foreground: 30 10% 15%;
+
+    --card: 40 33% 99%;
+    --card-foreground: 30 10% 15%;
+
+    --popover: 40 33% 99%;
+    --popover-foreground: 30 10% 15%;
+
+    /* Champagne Gold */
+    --primary: 38 55% 50%;
+    --primary-foreground: 40 33% 99%;
+
+    /* Warm Ivory */
+    --secondary: 40 30% 95%;
+    --secondary-foreground: 30 10% 20%;
+
+    /* Soft Cream */
+    --muted: 40 20% 93%;
+    --muted-foreground: 30 10% 45%;
+
+    /* Blush Accent */
+    --accent: 15 35% 92%;
+    --accent-foreground: 30 10% 20%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 40 33% 99%;
+
+    --border: 40 20% 88%;
+    --input: 40 20% 88%;
+    --ring: 38 55% 50%;
+
+    --radius: 0.25rem;
+
+    /* Custom Luxury Variables */
+    --champagne: 38 55% 50%;
+    --champagne-light: 38 50% 85%;
+    --ivory: 40 33% 98%;
+    --charcoal: 30 10% 15%;
+    --charcoal-light: 30 10% 35%;
+    --blush: 15 35% 92%;
+    --rose-gold: 15 45% 65%;
+
+    /* Gradients */
+    --gradient-gold: linear-gradient(135deg, hsl(38, 55%, 55%) 0%, hsl(38, 50%, 45%) 100%);
+    --gradient-overlay: linear-gradient(to bottom, hsla(30, 10%, 10%, 0.4) 0%, hsla(30, 10%, 10%, 0.6) 100%);
+    --gradient-fade: linear-gradient(to bottom, hsla(40, 33%, 98%, 0) 0%, hsl(40, 33%, 98%) 100%);
+
+    /* Shadows */
+    --shadow-soft: 0 4px 30px hsla(30, 10%, 15%, 0.06);
+    --shadow-elegant: 0 20px 60px hsla(30, 10%, 15%, 0.08);
+    --shadow-gold: 0 4px 20px hsla(38, 55%, 50%, 0.25);
+
+    /* Typography */
+    --font-display: 'Playfair Display', Georgia, serif;
+    --font-body: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+
+    /* Spacing */
+    --section-padding: clamp(5rem, 12vw, 10rem);
+    --content-max-width: 1400px;
+
+    /* Sidebar (keeping for shadcn compatibility) */
+    --sidebar-background: 40 33% 98%;
+    --sidebar-foreground: 30 10% 35%;
+    --sidebar-primary: 38 55% 50%;
+    --sidebar-primary-foreground: 40 33% 99%;
+    --sidebar-accent: 40 30% 95%;
+    --sidebar-accent-foreground: 30 10% 20%;
+    --sidebar-border: 40 20% 88%;
+    --sidebar-ring: 38 55% 50%;
+  }
+
+  .dark {
+    --background: 30 15% 8%;
+    --foreground: 40 20% 95%;
+
+    --card: 30 15% 10%;
+    --card-foreground: 40 20% 95%;
+
+    --popover: 30 15% 10%;
+    --popover-foreground: 40 20% 95%;
+
+    --primary: 38 55% 55%;
+    --primary-foreground: 30 15% 8%;
+
+    --secondary: 30 12% 15%;
+    --secondary-foreground: 40 20% 95%;
+
+    --muted: 30 12% 18%;
+    --muted-foreground: 40 15% 60%;
+
+    --accent: 30 12% 18%;
+    --accent-foreground: 40 20% 95%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 40 20% 95%;
+
+    --border: 30 12% 18%;
+    --input: 30 12% 18%;
+    --ring: 38 55% 55%;
+
+    --sidebar-background: 30 15% 8%;
+    --sidebar-foreground: 40 20% 95%;
+    --sidebar-primary: 38 55% 55%;
+    --sidebar-primary-foreground: 30 15% 8%;
+    --sidebar-accent: 30 12% 15%;
+    --sidebar-accent-foreground: 40 20% 95%;
+    --sidebar-border: 30 12% 18%;
+    --sidebar-ring: 38 55% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+    font-weight: 400;
+    letter-spacing: 0.01em;
+    line-height: 1.7;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+  }
+}
+
+@layer components {
+  /* Hero Text Styles */
+  .hero-headline {
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    font-weight: 400;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    color: hsl(40, 33%, 99%);
+  }
+
+  .hero-subheadline {
+    font-family: var(--font-body);
+    font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+    font-weight: 300;
+    letter-spacing: 0.05em;
+    line-height: 1.8;
+    color: hsla(40, 33%, 99%, 0.85);
+  }
+
+  /* Section Headers */
+  .section-header {
+    font-family: var(--font-display);
+    font-size: clamp(1.75rem, 4vw, 3rem);
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    color: hsl(var(--foreground));
+  }
+
+  .section-subheader {
+    font-family: var(--font-body);
+    font-size: clamp(0.8rem, 1.2vw, 0.95rem);
+    font-weight: 400;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: hsl(var(--muted-foreground));
+  }
+
+  /* Body Text */
+  .body-elegant {
+    font-family: var(--font-body);
+    font-size: clamp(0.9rem, 1.1vw, 1rem);
+    font-weight: 300;
+    line-height: 1.9;
+    color: hsl(var(--muted-foreground));
+  }
+
+  /* Button Variants */
+  .btn-gold {
+    @apply inline-flex items-center justify-center;
+    background: var(--gradient-gold);
+    color: hsl(40, 33%, 99%);
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 1rem 2.5rem;
+    border: none;
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    box-shadow: var(--shadow-gold);
+  }
+
+  .btn-gold:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px hsla(38, 55%, 50%, 0.35);
+  }
+
+  .btn-outline-light {
+    @apply inline-flex items-center justify-center;
+    background: transparent;
+    color: hsl(40, 33%, 99%);
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    font-weight: 400;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 0.75rem 1.5rem;
+    border: 1px solid hsla(40, 33%, 99%, 0.3);
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  .btn-outline-light:hover {
+    background: hsla(40, 33%, 99%, 0.1);
+    border-color: hsla(40, 33%, 99%, 0.5);
+  }
+
+  /* Link Styles */
+  .link-subtle {
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    color: hsla(40, 33%, 99%, 0.6);
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .link-subtle:hover {
+    color: hsl(40, 33%, 99%);
+  }
+
+  /* Container */
+  .container-luxury {
+    max-width: var(--content-max-width);
+    margin: 0 auto;
+    padding-left: clamp(1.5rem, 5vw, 4rem);
+    padding-right: clamp(1.5rem, 5vw, 4rem);
+  }
+
+  /* Section Spacing */
+  .section-padding {
+    padding-top: var(--section-padding);
+    padding-bottom: var(--section-padding);
+  }
+
+  /* Masonry Grid */
+  .masonry-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 1.5rem;
+  }
+
+  /* Image Cover */
+  .img-cover {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* Overlay */
+  .overlay-dark {
+    background: var(--gradient-overlay);
+  }
+
+  /* Parallax Container */
+  .parallax-container {
+    position: relative;
+    overflow: hidden;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+  }
+
+  /* Logo Strip */
+  .logo-strip {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(3rem, 8vw, 8rem);
+    flex-wrap: wrap;
+  }
+
+  .logo-item {
+    font-family: var(--font-body);
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: hsl(var(--muted-foreground));
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+  }
+
+  .logo-item:hover {
+    opacity: 1;
+  }
+}
+
+@layer utilities {
+  /* Animation Utilities */
+  .animate-fade-up {
+    animation: fadeUp 0.8s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 1s ease forwards;
+  }
+
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  /* Delay utilities */
+  .delay-100 { animation-delay: 100ms; }
+  .delay-200 { animation-delay: 200ms; }
+  .delay-300 { animation-delay: 300ms; }
+  .delay-400 { animation-delay: 400ms; }
+  .delay-500 { animation-delay: 500ms; }
+
+  /* Parallax effect */
+  .parallax-slow {
+    will-change: transform;
+    transition: transform 0.1s linear;
+  }
+}
