@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import HeroVideo from "../../assets/Hero_section_video.mp4";
+
 
 const HeroSection = () => {
   const scrollToWaitlist = () => {
@@ -22,7 +22,7 @@ const HeroSection = () => {
           className="absolute inset-0 w-full h-full object-cover"
           poster="/placeholder.svg"
         >
-          <source src={HeroVideo} type="video/mp4" />
+          <source src="/Hero_section_video.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
         <div className="absolute inset-0 overlay-dark" />
