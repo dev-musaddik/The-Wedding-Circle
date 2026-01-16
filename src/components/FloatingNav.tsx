@@ -21,13 +21,8 @@ const FloatingNav = () => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
 
-      // Show nav after scrolling past hero (100vh) only on home page
-      // Always show on other pages
-      if (location.pathname !== '/' || currentScrollY > window.innerHeight * 0.5) {
-        setIsVisible(true);
-      } else {
-        setIsVisible(false);
-      }
+      // Always show nav
+      setIsVisible(true);
 
       setLastScrollY(currentScrollY);
     };
